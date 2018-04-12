@@ -17,3 +17,9 @@
   ImageSize = 224*224*3
   FilterSize = 3*3*3*64 , 3*3*3*64
   NoOfLayers = Conv1,Conv2
+
+# Conv1_Conv2_Pool1
+  ImageSize = 224*224*3
+  FilterSize = 3*3*3*64 , 3*3*3*64
+  NoOfLayers = Conv1,Conv2
+  
