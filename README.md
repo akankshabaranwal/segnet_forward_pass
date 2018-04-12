@@ -5,8 +5,8 @@
 
 # Filter_Convolution_upscale_src
   ImageSize = 224*224*3
-  FilterSize = 3*3*3*3 , 3*3*3*3
-  NoOfLayers = Conv1,Conv2
+  FilterSize = 3*3*3*3 , 3*3*3*7
+  NoOfLayers = Conv1,Pool1,Conv2
 
 # Filter_Convolution_upscale_Filter5_src
   ImageSize = 224*224*3
@@ -23,3 +23,8 @@
   FilterSize = 3*3*3*64 , 3*3*3*64
   NoOfLayers = Conv1,Conv2
   
+# Pooling1
+  For synthesis purpose
+
+# add_only
+  For synthesis purpose (Adding all the values along dimension for Conv2)
