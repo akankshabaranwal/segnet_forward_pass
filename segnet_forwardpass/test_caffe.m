@@ -1,0 +1,59 @@
+clc;
+clear;
+Outbn=importdata('../caffe-params/after_bn/O1.mat');
+Out=importdata('/home/akanksha/caffe-params/partial/O1.mat');
+Wbn0=importdata('/home/akanksha/caffe-params/after_bn/bn0.mat');
+s=Wbn0(10);
+Wbn1=importdata('/home/akanksha/caffe-params/after_bn/bn1.mat');
+m=Wbn1(10);
+newOut = (s.*Out)+m;
+
+fid = fopen('MyFile.txt','w');
+for i=1:400
+    fprintf(fid, '%f %f \n',[newOut(1,10,1,i),Outbn(1,10,1,i)]);
+    %fprintf(fid, [newOut(1,10,1,i) ' ' Outbn(1,10,1,i) '\n']);
+end
+fclose(fid);
+
+%disp([newOut(1,10,2,:),Outbn(1,10,2,:)]);
+%disp([size(Wbn0),size(Wbn1)]);
+%disp([ybn,yO,m,s]);
+
+%I=importdata('In.mat');
+%Out=importdata('Out.mat');
+%W=importdata('Wt.mat');
+%b=importdata('bias.mat');
+%bn0=importdata('bn0.mat');
+%bn1=importdata('bn1.mat');
+% indim1=size(I,4);
+% indim2=size(I,3);
+% indim3=size(I,2);
+% In1=zeros(indim1,indim2,indim3);
+% for i=1:indim1
+%     for j=1:indim2
+%         for k=1:indim3
+%             %disp(i,j,k);
+%           %  disp(i);
+%            % disp(j);
+%             %disp(k);
+%             In1(i,j,k)=I(1,k,j,i);
+%         end
+%     end
+% end
+% wtdim1=size(W,4);
+% wtdim2=size(W,3);
+% wtdim3=size(W,2);
+% wtdim4=size(W,1);
+% wt=zeros(wtdim1,wtdim2,wtdim3,wtdim4);
+% for i=1:wtdim1
+%     for j=1:wtdim2
+%         for k=1:wtdim3
+%             for l=1:wtdim4
+%                 wt(i,j,k,l)=W(l,k,j,i);
+%             end
+%         end
+%     end
+% end
+% stride=1;
+% pad=1;
+% Ou=convlayer(In1,stride,pad,b,wt);
